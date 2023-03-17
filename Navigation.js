@@ -3,10 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 //Screen
 import ProductsScreen from "./src/screens/products";
 import SaleDayScreen from "./src/screens/saleDay";
+import GeneralAccountScreen from "./src/screens/generalAccount";
 
 const ProductStack = createNativeStackNavigator();
 
@@ -40,13 +42,32 @@ function ProductStackScreen() {
     );
 }
 
+const GeneralAccountStack = createNativeStackNavigator();
+
+function GeneralAccountStackScreen () {
+    return (
+        <ProductStack.Navigator>
+            <GeneralAccountStack.Screen
+                name={'GeneralAccount'}
+                component={GeneralAccountScreen}
+                options={{
+                    title: 'Cuenta General',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                    headerTitleAlign: 'center'
+                }}
+            />
+        </ProductStack.Navigator>
+    );
+}
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation(){
     return (
         <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator screenOptions={{ headerShown: false }}>
                 <Tab.Screen
                     name="Product"
                     component={ProductStackScreen}
@@ -58,8 +79,17 @@ export default function Navigation(){
                         tabBarLabelStyle: {color: 'black'}
                     }}
                 />
-                {/*
-                <Tab.Screen name="Settings" component={SettingsStackScreen} />*/}
+                <Tab.Screen
+                    name="GeneralAccount"
+                    component={GeneralAccountStackScreen}
+                    options={{
+                        tabBarLabel: 'Cuenta General',
+                        tabBarIcon: ({color, size}) => (
+                            <AntDesign name="setting" size={30} color="black" />
+                        ),
+                        tabBarLabelStyle: {color: 'black'}
+                    }}
+                />
             </Tab.Navigator>
         </NavigationContainer>
     )
