@@ -28,7 +28,7 @@ const ProductsScreen = ({}) => {
 
     const Item = ({item}) => (
         <Pressable
-            onPress={() => navigation.navigate('SaleDay')}
+            onPress={() => navigation.navigate('SaleDay', {item: item})}
             style={styles.containerCard}>
             <ImageBackground
                 source={{url: item.url}}
