@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, View } from "react-native";
+import { Image, Text, TextInput, View } from "react-native";
 import styles from "./styles";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import moment from "moment";
@@ -12,7 +12,11 @@ const SaleDayScreen = ({route}) => {
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView>
-                <Text style={styles.title}>{product.title}</Text>
+                <Text style={styles.title}>{product.name}</Text>
+                <Image
+                    source={{url: product.image}}
+                    style={styles.image}
+                />
                 <Text style={styles.textTitleInput}>Día:</Text>
                 <Text style={styles.textDate}>{moment().format('DD-MM-YYYY')}</Text>
                 <Text style={styles.textTitleInput}>Cantidad de compra:</Text>

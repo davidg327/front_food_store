@@ -10,6 +10,12 @@ const styles = StyleSheet.create({
     title: {
         fontSize: wp(5),
     },
+    image: {
+        width: wp('90%'),
+        height: hp('20%'),
+        marginTop: hp(2),
+        borderRadius: wp(3),
+    },
     textTitleInput: {
         marginTop: hp(3),
     },

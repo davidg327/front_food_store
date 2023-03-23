@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     contentContainer: {
-        paddingBottom: hp(10),
+        paddingBottom: hp(6),
     },
     containerCard: {
         width: wp('45%'),
