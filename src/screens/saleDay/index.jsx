@@ -3,6 +3,7 @@ import { Text, TextInput, View } from "react-native";
 import styles from "./styles";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import moment from "moment";
+import {ButtonComponent} from "../../component/button";
 
 const SaleDayScreen = ({route}) => {
 
@@ -34,6 +35,8 @@ const SaleDayScreen = ({route}) => {
                     onChangeText={() => console.log('')}
                     //defaultValue={'de prueba'}
                     placeholder={'Cantidad de productos averiados del día de hoy'}
+                />
+                <ButtonComponent
                 />
             </KeyboardAwareScrollView>
         </View>

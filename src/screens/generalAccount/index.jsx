@@ -3,6 +3,7 @@ import {Text, TextInput, View} from "react-native";
 import styles from "./styles";
 import moment from "moment/moment";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import {ButtonComponent} from "../../component/button";
 
 const GeneralAccountScreen = ({}) => {
     return (
@@ -17,6 +18,8 @@ const GeneralAccountScreen = ({}) => {
                     onChangeText={() => console.log('')}
                     //defaultValue={'de prueba'}
                     placeholder={'Colocar la cantidad de gasto del dia de hoy'}
+                />
+                <ButtonComponent
                 />
             </KeyboardAwareScrollView>
         </View>

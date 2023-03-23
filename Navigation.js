@@ -74,13 +74,13 @@ export default function Navigation(){
                     options={{
                         tabBarLabel: 'Productos',
                         tabBarIcon: ({color, size}) => (
-                            <Entypo name="blackboard" size={30} color="black"/>
+                            <AntDesign name="shoppingcart" size={30} color="black" />
                         ),
                         tabBarLabelStyle: {color: 'black'}
                     }}
                 />
                 <Tab.Screen
-                    name="GeneralAccount"
+                    name="GeneralAccounts"
                     component={GeneralAccountStackScreen}
                     options={{
                         tabBarLabel: 'Cuenta General',
