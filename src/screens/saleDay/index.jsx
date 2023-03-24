@@ -41,11 +41,10 @@ const SaleDayScreen = ({route}) => {
                 //body
                 'Se ha guardado, la información correctamente',
                 [
-                    { text: 'Volver',
+                    { text: 'Ok',
                         onPress: () =>
                         {
                             setSuccess(false);
-                            navigation.goBack();
                         }}
                     ,
                 ],
