@@ -20,6 +20,7 @@ const GeneralAccountScreen = ({}) => {
                     placeholder={'Colocar la cantidad de gasto del dia de hoy'}
                 />
                 <ButtonComponent
+                    text={'Guardar'}
                 />
             </KeyboardAwareScrollView>
         </View>

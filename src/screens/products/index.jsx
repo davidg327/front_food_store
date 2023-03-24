@@ -4,27 +4,35 @@ import styles from "./styles";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import {getProducts} from "../../api/getProducts";
+import {getGeneralAccount} from "../../api/getGeneralAccount";
 
 const ProductsScreen = ({}) => {
 
     const navigation = useNavigation();
 
     const [products, setProducts] = useState([]);
+    const [generalId, setGeneralId] = useState(0);
 
     useEffect(() => {
         (async () => {
             let products = await getProducts();
             setProducts(products.data.data);
         })();
+    }, []);
 
+    useEffect(() => {
+        (async () => {
+            let generalAccount = await getGeneralAccount();
+            setGeneralId(generalAccount.data.data.id);
+        })();
     }, []);
 
     const Item = ({item}) => (
         <Pressable
-            onPress={() => navigation.navigate('SaleDay', {item: item})}
+            onPress={() => navigation.navigate('SaleDay', {item: item, GeneralAccoundId: generalId})}
             style={styles.containerCard}>
             <ImageBackground
-                source={{url: item.image}}
+                source={{uri: item.image}}
                 style={styles.containerProduct}
                 imageStyle={styles.border}
             >
