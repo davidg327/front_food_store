@@ -1,17 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import { Image, Text, TextInput, View } from "react-native";
+import {Alert, Image, Text, TextInput, View} from "react-native";
 import styles from "./styles";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import moment from "moment";
 import {ButtonComponent} from "../../component/button";
 import {getSaleDayYesterday} from "../../api/getSaleDayYesterday";
+import {postSaleDay} from "../../api/postSaleDay";
+import {useNavigation} from "@react-navigation/native";
 
 const SaleDayScreen = ({route}) => {
 
     let product = route.params.item;
     let generalId = route.params.GeneralAccoundId;
 
+    const navigation = useNavigation();
+
     const [sateDayYesterday, setSaleDayYesterday] = useState({});
+    const [success, setSuccess] = useState(false);
+
     const [form, setForm] = useState({});
 
     const setData = (key, value) => {
@@ -27,6 +33,26 @@ const SaleDayScreen = ({route}) => {
         getSaleDayYesterday(yesterday, product.id, setSaleDayYesterday);
     }, []);
 
+    useEffect(() => {
+        if(success){
+            Alert.alert(
+                //title
+                'Gracias',
+                //body
+                'Se ha guardado, la información correctamente',
+                [
+                    { text: 'Volver',
+                        onPress: () =>
+                        {
+                            setSuccess(false);
+                            navigation.goBack();
+                        }}
+                    ,
+                ],
+            );
+        }
+    }, [success]);
+
     const createSaleDay = () => {
         let values = {
             buy_product: form?.buy ? parseInt(form.buy) : '',
@@ -36,7 +62,7 @@ const SaleDayScreen = ({route}) => {
             product_id: product.id,
             general_account_id: generalId,
         };
-        console.log(values);
+        postSaleDay(values, setSuccess);
     };
 
     return (
