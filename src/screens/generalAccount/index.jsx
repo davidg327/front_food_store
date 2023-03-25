@@ -10,8 +10,6 @@ import {getGeneralAccount} from "../../api/getGeneralAccount";
 
 const GeneralAccountScreen = ({}) => {
 
-    const navigation = useNavigation();
-
     const [expense, setExpense] = useState('');
     const [success, setSuccess] = useState(false);
     const [generalId, setGeneralId] = useState(0);
@@ -31,11 +29,10 @@ const GeneralAccountScreen = ({}) => {
                 //body
                 'Se ha guardado, la información correctamente',
                 [
-                    { text: 'Volver',
+                    { text: 'Ok',
                         onPress: () =>
                         {
                             setSuccess(false);
-                            navigation.goBack();
                         }}
                     ,
                 ],
