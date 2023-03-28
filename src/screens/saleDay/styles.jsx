@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     textDate: {
         fontSize: wp(4),
     },
+    textFinalProduct: {
+        fontSize: wp(4),
+        marginTop: hp(1),
+    },
     input: {
         width: wp('90%'),
         padding: wp(5),
