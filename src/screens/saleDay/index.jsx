@@ -77,8 +77,8 @@ const SaleDayScreen = ({route}) => {
                 />
                 <Text style={styles.textTitleInput}>Día:</Text>
                 <Text style={styles.textDate}>{moment().format('DD-MM-YYYY')}</Text>
-                <Text style={styles.textTitleInput}>Cantidad de prodcutos que quedaron del día anterior</Text>
-                <Text style={styles.textFinalProduct}>{Object.keys(sateDayYesterday).length > 0 ? sateDayYesterday.final_product_inventory : 0}</Text>
+                <Text style={styles.textTitleInput}>Cantidad de productos que quedaron del día anterior</Text>
+                <Text style={styles.textFinalProduct}>{product.quantity}</Text>
                 <Text style={styles.textTitleInput}>Cantidad de compra:</Text>
                 <TextInput
                     style={styles.input}
