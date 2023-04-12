@@ -58,7 +58,7 @@ const SaleDayScreen = ({route}) => {
             buy_product: form?.buy ? parseInt(form.buy) : '',
             sale_product: form?.sale ? parseInt(form.sale) : '',
             broken_product: form?.broken ? parseInt(form.broken) : '',
-            final_product_after_day: Object.keys(sateDayYesterday).length > 0 ? sateDayYesterday.final_product_inventory : 0,
+            final_product_after_day: product.quantity,
             product_id: product.id,
             general_account_id: generalId,
         };

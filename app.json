@@ -19,7 +19,7 @@
     },
     "android": {
       "package": "com.tienda.clara",
-      "versionCode": 2,
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
